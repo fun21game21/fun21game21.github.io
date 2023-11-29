@@ -1,4 +1,5 @@
 document.getElementById('completeAdButton').addEventListener('click', function() {
+    window.close();
     // Пример: отправка запроса на сервер Python (Telebot) для начисления очков
     fetch('/increase_points', {
         method: 'POST',
