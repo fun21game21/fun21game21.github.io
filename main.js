@@ -12,7 +12,7 @@ document.getElementById('completeAdButton').addEventListener('click', function()
     .then(data => {
         console.log(data);
         // Пример: После успешного запроса, перенаправляем пользователя на телеграмм бот
-        window.location.href = 'https://t.me/Coockie_Clicker_Bot'; // Замените на фактический юзернейм вашего бота
+        window.location.href = 'https://t.me/@Coockie_Clicker_Bot'; // Замените на фактический юзернейм вашего бота
     })
     .catch(error => console.error(error));
 });
