@@ -1,5 +1,19 @@
+// Получаем текущий URL
+var currentUrl = window.location.href;
+
+// Функция для извлечения параметра из URL
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 document.getElementById('completeAdButton').addEventListener('click', function() {
-    window.close();
+    
     // Пример: отправка запроса на сервер Python (Telebot) для начисления очков
     fetch('/increase_points', {
         method: 'POST',
@@ -15,21 +29,10 @@ document.getElementById('completeAdButton').addEventListener('click', function()
         window.location.href = 'https://t.me/@Coockie_Clicker_Bot'; // Замените на фактический юзернейм вашего бота
     })
     .catch(error => console.error(error));
+    window.close();
 });
 
-// Получаем текущий URL
-var currentUrl = window.location.href;
 
-// Функция для извлечения параметра из URL
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
 
 // Извлекаем chat_id из текущего URL
 var chatId = getParameterByName('chat_id', currentUrl);
