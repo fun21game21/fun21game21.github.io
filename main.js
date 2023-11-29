@@ -1,6 +1,9 @@
 // Получаем текущий URL
 var currentUrl = window.location.href;
 
+// Извлекаем chat_id из текущего URL
+var chatId = getParameterByName('chat_id', currentUrl);
+
 // Функция для извлечения параметра из URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -34,8 +37,6 @@ document.getElementById('completeAdButton').addEventListener('click', function()
 
 
 
-// Извлекаем chat_id из текущего URL
-var chatId = getParameterByName('chat_id', currentUrl);
 
 
 // Добавляем динамический таймер в title и отправку сигнала через 30 секунд
@@ -66,6 +67,7 @@ function startTimer(duration) {
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error(error));
+            window.close();
         }
     }, 1000);
 }
