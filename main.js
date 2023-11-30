@@ -8,45 +8,10 @@ const chatId = Number(getChatIdFromUrl());
 
 
 
-document.getElementById('completeAdButton').addEventListener('click', function() {
-    // Пример: отправка запроса на сервер Python (Telebot) для начисления очков
-    fetch('/increase_points', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ chat_id: chatId }), // Замените на фактический chat_id пользователя
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Пример: После успешного запроса, перенаправляем пользователя на телеграмм бот
-        window.location.href = 'https://t.me/Coockie_Clicker_Bot'; // Замените на фактический юзернейм вашего бота
-    })
-    .catch(error => console.error(error));
-    window.close();
-});
 
 
- // Функция для отправки сигнала телеграм-боту
-    function sendTelegramSignal() {
-  // Замените 'YOUR_BOT_TOKEN' на токен вашего бота
-      const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
-      // const chatId = 'YOUR_CHAT_ID';  Замените на ID вашего чата в Telegram
-      const signalUrl = 'http://192.168.0.29:8908/user_activity_signal'; //`https://api.telegram.org/bot${botToken}/user_activity_signal`;
-  
-    // Отправляем POST-запрос на сервер телеграм-бота
-      fetch(signalUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ chat_id: chatId }),
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-    }
+
+ 
 
 
 // Добавляем динамический таймер в title и отправку сигнала через 30 секунд
@@ -65,7 +30,24 @@ function startTimer(duration) {
             clearInterval(timerInterval);
             document.title = "Вознаграждение зачислено!";
 
-            
+            // Функция для отправки сигнала телеграм-боту
+    function sendTelegramSignal() {
+      const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
+      const chatId = 'YOUR_CHAT_ID';
+      const signalUrl = `http://192.168.0.29:8908/user_activity_signal`;
+  
+      // Отправляем POST-запрос на сервер Flask
+      fetch(signalUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ chat_id: chatId }),
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    }
             sendTelegramSignal();
             
             
@@ -85,6 +67,11 @@ function startTimer(duration) {
         }
     }, 1000);
 }
+document.getElementById('completeAdButton').addEventListener('click', function() {
+    sendTelegramSignal();
+
+    window.close();
+});
 
 window.onload = function () {
     // Устанавливаем продолжительность таймера в секундах (например, 30 секунд)
