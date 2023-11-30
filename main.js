@@ -4,7 +4,7 @@ function getChatIdFromUrl() {
   return match ? match[1] : null;
 }
 
-const chatId = getChatIdFromUrl();
+const chatId = Number(getChatIdFromUrl());
 
 
 
