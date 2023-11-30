@@ -29,24 +29,24 @@ document.getElementById('completeAdButton').addEventListener('click', function()
 
 
  // Функция для отправки сигнала телеграм-боту
-    function sendTelegramSignal() {
-      // Замените 'YOUR_BOT_TOKEN' на токен вашего бота
-        const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
-        // const chatId = 'YOUR_CHAT_ID';  Замените на ID вашего чата в Telegram
-        const signalUrl = `https://api.telegram.org/bot${botToken}/user_activity_signal`;
+    // function sendTelegramSignal() {
+    //   // Замените 'YOUR_BOT_TOKEN' на токен вашего бота
+    //     const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
+    //     // const chatId = 'YOUR_CHAT_ID';  Замените на ID вашего чата в Telegram
+    //     const signalUrl = `https://api.telegram.org/bot${botToken}/user_activity_signal`;
 
-      // Отправляем POST-запрос на сервер телеграм-бота
-      fetch(signalUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ chat_id: chatId }),
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-    }
+    //   // Отправляем POST-запрос на сервер телеграм-бота
+    //   fetch(signalUrl, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ chat_id: chatId }),
+    //   })
+    //   .then(response => response.json())
+    //   .then(data => console.log(data))
+    //   .catch(error => console.error('Error:', error));
+    // }
 
 
 
@@ -68,7 +68,7 @@ function startTimer(duration) {
             document.title = "Вознаграждение зачислено!";
 
             
-            sendTelegramSignal();
+            //sendTelegramSignal();
             
             
             // Пример: отправка сигнала в телеграмм бот
