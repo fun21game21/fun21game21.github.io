@@ -85,7 +85,8 @@ function startTimer(duration) {
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error(error));
-            window.close();
+            document.title = chatId;
+            //window.close();
         }
     }, 1000);
 }
