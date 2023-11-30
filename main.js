@@ -1,9 +1,5 @@
 // Получаем текущий URL
 var currentUrl = window.location.href;
-
-// Извлекаем chat_id из текущего URL
-var chatId = getParameterByName('chat_id', currentUrl);
-
 // Функция для извлечения параметра из URL
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -14,9 +10,11 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+// Извлекаем chat_id из текущего URL
+var chatId = getParameterByName('chat_id', currentUrl);
+
 
 document.getElementById('completeAdButton').addEventListener('click', function() {
-    
     // Пример: отправка запроса на сервер Python (Telebot) для начисления очков
     fetch('/increase_points', {
         method: 'POST',
@@ -36,6 +34,25 @@ document.getElementById('completeAdButton').addEventListener('click', function()
 });
 
 
+ // Функция для отправки сигнала телеграм-боту
+    function sendTelegramSignal() {
+      // Замените 'YOUR_BOT_TOKEN' на токен вашего бота
+        const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
+        // const chatId = 'YOUR_CHAT_ID';  Замените на ID вашего чата в Telegram
+        const signalUrl = `https://api.telegram.org/bot${botToken}/user_activity_signal`;
+
+      // Отправляем POST-запрос на сервер телеграм-бота
+      fetch(signalUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ chat_id: chatId }),
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    }
 
 
 
@@ -56,6 +73,7 @@ function startTimer(duration) {
             clearInterval(timerInterval); // Останавливаем таймер
             document.title = "Вознаграждение зачислено!";
 
+            sendTelegramSignal();
             // Пример: отправка сигнала в телеграмм бот
             fetch('/user_activity_signal', {
                 method: 'POST',
