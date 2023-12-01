@@ -8,7 +8,7 @@ function getChatIdFromUrl() {
 
 // Функция для отправки сигнала телеграм-боту
 function sendTelegramSignal() {
-              const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
+              //const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
               const signalUrl = 'https://192.168.0.29:8908/user_activity_signal';
               const chatId = Number(getChatIdFromUrl());
               // Отправляем POST-запрос на сервер Flask
@@ -24,7 +24,7 @@ function sendTelegramSignal() {
               .catch(error => console.error('Error:', error));
             }
 
-// Добавляем динамический таймер в title и отправку сигнала через 30 секунд
+// Динамический таймер в title и отправку сигнала через 3 секунды
 function startTimer(duration) {
     let timer = duration;
     let timerInterval = setInterval(function () {
@@ -45,6 +45,7 @@ function startTimer(duration) {
         }
     }, 1000);
 }
+// Кнопка
 document.getElementById('completeAdButton').addEventListener('click', function() {
     sendTelegramSignal();
 
@@ -52,7 +53,6 @@ document.getElementById('completeAdButton').addEventListener('click', function()
 });
 
 window.onload = function () {
-    // Устанавливаем продолжительность таймера в секундах (например, 30 секунд)
     let duration = 3;
     startTimer(duration);
 };
