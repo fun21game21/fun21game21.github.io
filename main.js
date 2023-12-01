@@ -4,13 +4,13 @@ function getChatIdFromUrl() {
   return match ? match[1] : null;
 }
 
-const chatId = Number(getChatIdFromUrl());
+
 
 // Функция для отправки сигнала телеграм-боту
 function sendTelegramSignal() {
               const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
               const signalUrl = 'http://192.168.0.29:8908/user_activity_signal';
-              
+              const chatId = Number(getChatIdFromUrl());
               // Отправляем POST-запрос на сервер Flask
               fetch(signalUrl, {
                   method: 'POST',
