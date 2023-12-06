@@ -9,7 +9,7 @@ function getChatIdFromUrl() {
 // Функция для отправки сигнала телеграм-боту
 function sendTelegramSignal() {
               //const botToken = '6487748195:AAGjyQZW6IAt3RuaU88u3HxZDkmkFpBUb1U';
-              const signalUrl = 'https://192.168.0.29:8908/user_activity_signal';
+              const signalUrl = 'https://127.0.0.1:8908/user_activity_signal';
               const chatId = Number(getChatIdFromUrl());
               // Отправляем POST-запрос на сервер Flask
               fetch(signalUrl, {
