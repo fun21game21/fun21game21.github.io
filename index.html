@@ -31,11 +31,11 @@
             return match ? match[1] : null;
             }
 
-            
+
             function sendTelegramSignal() {
                 const chat_id = Number(getChatIdFromUrl());
                 const serverUrl = 'http://127.0.0.1:8908/user_activity_signal';
-            
+
                 fetch(serverUrl, {
                     method: 'POST',
                     headers: {
@@ -44,7 +44,10 @@
                     body: JSON.stringify({ chat_id: chat_id }),
                 })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => {
+                console.log(data);
+                window.close();
+                })
                 .catch(error => console.error('Error:', error));
             }
             function startTimer(duration) {
@@ -62,7 +65,7 @@
                         clearInterval(timerInterval);
                         document.title = "Вознаграждение зачислено!";
                         sendTelegramSignal();
-                        setTimeout(window.close(), 350);
+
                     }
                 }, 1000);
             }
