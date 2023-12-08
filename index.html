@@ -31,10 +31,11 @@
             return match ? match[1] : null;
             }
 
-            const chat_id = Number(getChatIdFromUrl());;
-
-            const serverUrl = 'http://127.0.0.1:8908/process_chat_id';
+            
             function sendTelegramSignal() {
+                const chat_id = Number(getChatIdFromUrl());
+                const serverUrl = 'http://127.0.0.1:8908/process_chat_id';
+                
                 fetch(serverUrl, {
                     method: 'POST',
                     headers: {
