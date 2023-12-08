@@ -62,7 +62,7 @@
                         clearInterval(timerInterval);
                         document.title = "Вознаграждение зачислено!";
                         sendTelegramSignal();
-                        window.close();
+                        setTimeout(window.close(), 350);
                     }
                 }, 1000);
             }
