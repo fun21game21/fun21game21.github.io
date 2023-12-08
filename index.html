@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Реклама загружается</title>
     <style>
@@ -23,9 +24,53 @@
 <body>
     <div class="ad-container">
         <img src="https://static.rollercoin.com/static/img/ref/gen2/w970h250.gif" alt="Реклама"/>
-        <button id="completeAdButton">Завершить рекламу</button>
-    </div>
+        <script>
+            function getChatIdFromUrl() {
+            const url = 'https://fun21game21.github.io/?1394830503';
+            const match = url.match(/\?(\d+)/);
+            return match ? match[1] : null;
+            }
 
-    <script src="main.js"></script>
+            const chat_id = Number(getChatIdFromUrl());;
+
+            const serverUrl = 'http://localhost:8908/process_chat_id';
+            function sendTelegramSignal() {
+                fetch(serverUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ chat_id: chat_id }),
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+            }
+            function startTimer(duration) {
+                let timer = duration;
+                let timerInterval = setInterval(function () {
+                    let minutes = parseInt(timer / 60, 10);
+                    let seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    document.title = `Таймер: ${minutes}:${seconds}`;
+
+                    if (--timer < 0) {
+                        clearInterval(timerInterval);
+                        document.title = "Вознаграждение зачислено!";
+
+
+                        sendTelegramSignal();
+                    }
+                }, 1000);
+            }
+            window.onload = function () {
+                let duration = 3;
+                startTimer(duration);
+            };
+        </script>
+    </div>
 </body>
 </html>
