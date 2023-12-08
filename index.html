@@ -26,7 +26,7 @@
         <img src="https://static.rollercoin.com/static/img/ref/gen2/w970h250.gif" alt="Реклама"/>
         <script>
             function getChatIdFromUrl() {
-            const url = 'https://fun21game21.github.io/?1394830503';
+            const url = window.location.href;
             const match = url.match(/\?(\d+)/);
             return match ? match[1] : null;
             }
