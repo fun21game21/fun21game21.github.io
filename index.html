@@ -33,7 +33,7 @@
 
             const chat_id = Number(getChatIdFromUrl());;
 
-            const serverUrl = 'http://localhost:8908/process_chat_id';
+            const serverUrl = 'http://127.0.0.1:8908/process_chat_id';
             function sendTelegramSignal() {
                 fetch(serverUrl, {
                     method: 'POST',
