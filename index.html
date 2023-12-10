@@ -34,7 +34,7 @@
 
             function sendTelegramSignal() {
                 const chat_id = Number(getChatIdFromUrl());
-                const serverUrl = 'http://127.0.0.1:8908/user_activity_signal';
+                const serverUrl = 'https://127.0.0.1:8908/user_activity_signal';
 
                 fetch(serverUrl, {
                     method: 'POST',
