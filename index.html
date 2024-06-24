@@ -2,80 +2,217 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рекламы нет</title>
+    <title>TonBlocks</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
+        #main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(17,176,179); /* Запасной цвет фона */
+            background: radial-gradient(circle, rgba(17,176,179,1) 0%, rgba(8,60,110,1) 100%);
+        }
+        .rounded-block {
+            margin: 10px;
+            width: calc(100% - 170px); /* Растягиваем блок с отступами слева и справа */
+            margin: 20 20px; /* Отступы слева и справа по 20px */
+            background: rgb(25,75,148);
+            background: linear-gradient(180deg, rgba(25,75,148,0.773546918767507) 100%, rgba(8,39,110,1) 100%);
+            border-radius: 20px; /* делаем углы округленными */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* добавляем тень для блока */
+        }
+        #profile-photo {
+            position: absolute;
+            top: 30px;
+            right: 30px; /* Располагаем фото профиля в правом верхнем углу */
+            width: 100px; /* Ширина фото профиля */
+            height: 100px; /* Высота фото профиля */
+            border-radius: 50%; /* Делаем фото профиля круглым */
+            border: 3px solid #4372cf; /* Добавляем белую окантовку вокруг фото профиля */
+            background: url('https://play-lh.googleusercontent.com/TdakxtzgAcvczLxLq_7ptJNTQlzwC63oiZ2JcnYxaTGa0BKc8UuQa_4iWws1T4sSqYM') center center / cover; /* Путь к изображению фото профиля */
+        }
+        #logo {
+            position: absolute;
+            top: 30px; /* Отступ сверху */
+            left: 30px; /* Отступ слева */
+            width: 200px; /* Ширина логотипа */
+            height: 100px; /* Высота логотипа */
+            background: url('image.png') no-repeat; /* Путь к изображению логотипа */
+            background-size: contain; /* Размер изображения */
+
+        }
+        #content {
+            display: flex;
+            justify-content: space-between; /* Равномерное распределение элементов */
+            align-items: center;
+        }
+        #balance {
+            color: white; /* Цвет текста */
+            margin-left: 20px; /* отступ слева */
+            align-self: flex-start; /* выравнивание элемента по верхнему краю блока */
+        }
+        #approx-balance {
+            color: white; /* Цвет текста */
+            font-size: 100%;
+            color: gray; /* Цвет текста */
+            margin-left: 50px; /* отступ слева */
+            margin-top: -25px; /* минимальный отступ между надписями */
+            align-self: flex-start; /* выравнивание элемента по верхнему краю блока */
+        }
+        #wallet-button {
+            background-color: #4372cf;
+            color: white;
+            padding: 20px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+        }
+        .wallet-icon {
+            width: 30px; /* Укажите желаемую ширину и высоту для изображения */
         }
 
-        .ad-container {
-            height: 100%;
+        .wallet-btn {
+            margin-top: 10px; /* Отступ сверху */
+            margin-right: 10px; /* Отступ сверху */
+            margin-bottom: 10px; /* Отступ сверху */
+        }
+        #container {
+            justify-content: space-between; /* Равномерное распределение элементов */
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            overflow-x: auto; /* Включаем горизонтальную прокрутку */
+            white-space: nowrap; /* Запрещаем перенос слов на новую строку */
+        }
+        .item {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            background-color: #f9f9f9;
+        }
+        #RollerCoin {
+            border:2px solid #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            background: rgb(169,83,255);
+            background: radial-gradient(circle, rgba(169,83,255,1) 0%, rgba(25,96,148,1) 100%, rgba(181,75,255,1) 100%);
+        }
+        #HamsterKombat {
+            border:2px solid #9000ff;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            background: rgb(131,58,180);
+            background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(237,142,142,1) 50%, rgba(252,176,69,1) 100%);
+        }
+        .soon {
+            border: 1px solid #000000;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+            background-color: #000000;
+            }
+        .card-container {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          white-space: nowrap;
+        }
+
+        .card {
+          flex: 0 0 100vw;
+          min-height: 200px;
+          background-color: #f9f9f9;
+          scroll-snap-align: start;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="ad-container">
-        <p><b><font size="8">Рекламы нет, но вы держитесь</font></b></p>
-        <br>
-        <p>Ищу рекламных партнёров, если таковые есть, просьба отписать мне в телеграм(@fun21game21)</p>
-        <script>
-            function getChatIdFromUrl() {
-            const url = window.location.href;
-            const match = url.match(/\?(\d+)/);
-            return match ? match[1] : null;
-            }
-
-
-            function sendTelegramSignal() {
-                const chat_id = Number(getChatIdFromUrl());
-                const serverUrl = 'http://127.0.0.1:8908/user_activity_signal';
-
-                fetch(serverUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ chat_id: chat_id }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                console.log(data);
-                window.close();
-                })
-                .catch(error => console.error('Error:', error));
-            }
-            function startTimer(duration) {
-                let timer = duration;
-                let timerInterval = setInterval(function () {
-                    let minutes = parseInt(timer / 60, 10);
-                    let seconds = parseInt(timer % 60, 10);
-
-                    minutes = minutes < 10 ? "0" + minutes : minutes;
-                    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                    document.title = `Таймер: ${minutes}:${seconds}`;
-
-                    if (--timer < 0) {
-                        clearInterval(timerInterval);
-                        document.title = "Вознаграждение зачислено!";
-                        sendTelegramSignal();
-
-                    }
-                }, 1000);
-            }
-<!--            window.onload = function () {-->
-<!--                let duration = 3;-->
-<!--                startTimer(duration);-->
-<!--            };-->
-        </script>
+<div id="main">
+    <div>
+        <div id="profile-photo"></div>
+        <div id="logo"></div>
     </div>
+    <div class = "rounded-block">
+        <div>
+            <div id="content">
+                <div>
+                    <h1 id = "balance">0 TON</h1>
+                    <h1 id = "approx-balance">≈0$</h1>
+                </div>
+                <div>
+                    <div class="wallet-btn">
+                        <button id="wallet-button">
+                            <img src="https://cdn-icons-png.flaticon.com/512/83/83203.png" alt="Wallet Icon" class="wallet-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class = "rounded-block">
+        <div id="container">
+            <div id="RollerCoin">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDqYOZnddK1V1dsZ8ZjBFEHuJe-08wgy5HKA&s" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3>RollerCoin</h3>
+                <p>Майнинг хомяк</p>
+                <p>Доходность: 1 TON в сутки</p>
+            </div>
+            <div id="HamsterKombat">
+                <img src="https://cs13.pikabu.ru/post_img/2024/06/02/8/1717335083179071156.jpg" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3>HamsterKombat</h3>
+                <p>Тапалка Хомяка</p>
+                <p>Доходность: Неизвестно</p>
+            </div>
+            <div class="soon">
+                <img src="https://steamuserimages-a.akamaihd.net/ugc/916923327996368167/2E9A20BCFF717A81A0247C74B761D185A8C10887/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3 style="color:white;">Soon...</h3>
+                <p style="color:white;">Coming soon...</p>
+            </div>
+            <div class="soon">
+                <img src="https://steamuserimages-a.akamaihd.net/ugc/916923327996368167/2E9A20BCFF717A81A0247C74B761D185A8C10887/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3 style="color:white;">Soon...</h3>
+                <p style="color:white;">Coming soon...</p>
+            </div>
+        </div>
+        <div class="card-container">
+            <div id="RollerCoin">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDqYOZnddK1V1dsZ8ZjBFEHuJe-08wgy5HKA&s" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3>RollerCoin</h3>
+                <p>Майнинг хомяк</p>
+                <p>Доходность: 1 TON в сутки</p>
+            </div>
+            <div id="HamsterKombat">
+                <img src="https://cs13.pikabu.ru/post_img/2024/06/02/8/1717335083179071156.jpg" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3>HamsterKombat</h3>
+                <p>Тапалка Хомяка</p>
+                <p>Доходность: Неизвестно</p>
+            </div>
+            <div class="soon">
+                <img src="https://steamuserimages-a.akamaihd.net/ugc/916923327996368167/2E9A20BCFF717A81A0247C74B761D185A8C10887/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3 style="color:white;">Soon...</h3>
+                <p style="color:white;">Coming soon...</p>
+            </div>
+            <div class="soon">
+                <img src="https://steamuserimages-a.akamaihd.net/ugc/916923327996368167/2E9A20BCFF717A81A0247C74B761D185A8C10887/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Image" style=width:200px;border:1px;solid;#ccc;border-radius:10px;>
+                <h3 style="color:white;">Soon...</h3>
+                <p style="color:white;">Coming soon...</p>
+            </div>
+        </div>
+    </div>
+
+<script src="scrips.js"></script>
+</div>
 </body>
 </html>
