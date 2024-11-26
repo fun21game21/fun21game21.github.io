@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #f0e5d7;
+}
+
+.container {
+    display: flex;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin: 0 20px;
+    position: relative;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background-image: url('stepan.jpeg');
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #b4d1c2;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.notebook {
+    max-width: 250px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.notebook p {
+    margin: 0;
+    color: #333;
+    font-family: "Courier New", sans-serif;
+    font-size: 15px;
+}
+
+.field {
+    background: #e7f3f1;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #b4d1c2;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Позиционирование иконок */
+.icon-left {
+    left: -75px; /* 25px от основного блока */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.icon-right {
+    left: 100%; /* Справа от основного блока */
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 25px; /* 25px от основного блока */
+}
+
+.icon-top {
+    left: 50%;
+    top: -75px; /* 25px от основного блока */
+    transform: translateX(-50%);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Начальное состояние для анимации */
+    opacity: 0; /* Начальная прозрачность */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Переходы */
+    background: white; /* Фон модального окна */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 20px; /* Отступы внутри модального окна */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для модального окна */
+    max-width: 300px; /* Максимальная ширина модального окна */
+    width: 90%; /* Ширина модального окна */
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+}
+
+.modal-content.show {
+    transform: translate(-50%, -50%) scale(1); /* Конечное состояние для анимации */
+    opacity: 1; /* Конечная прозрачность */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game-stats {
+    margin-top: 10px; /* Отступ сверху для блока со статистикой игр */
+}
+
+.game-card {
+    background: #f9f9f9; /* Цвет фона по умолчанию */
+    border: 1px solid #ddd; /* Цвет рамки карточки */
+    border-radius: 5px; /* Закругленные углы карточки */
+    padding: 10px; /* Отступы внутри карточки */
+    margin-bottom: 10px; /* Отступ между карточками */
+}
+
+.game-title {
+    font-weight: bold; /* Жирный шрифт для названия игры */
+}
+
+.game-hours {
+    color: rgba(255, 255, 255, 0.8); /* Более светлый серый цвет для времени */
+    font-size: 14px; /* Размер шрифта */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Тень текста */
+}
+
+
+
+/* Стиль для кнопки "Написать" */
+.write-button {
+    display: inline-block;
+    background-color: #0088cc; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Закругленные углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    text-align: center; /* Выравнивание текста по центру */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+.write-button:hover {
+    background-color: #0077b3; /* Цвет фона кнопки при наведении */
+}
