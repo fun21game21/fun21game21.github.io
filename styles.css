@@ -67,23 +67,23 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Позиционирование иконок */
+
 .icon-left {
-    left: -75px; /* 25px от основного блока */
+    left: -75px;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .icon-right {
-    left: 100%; /* Справа от основного блока */
+    left: 100%; 
     top: 50%;
     transform: translateY(-50%);
-    margin-left: 25px; /* 25px от основного блока */
+    margin-left: 25px; 
 }
 
 .icon-top {
     left: 50%;
-    top: -75px; /* 25px от основного блока */
+    top: -75px; 
     transform: translateX(-50%);
 }
 
@@ -101,21 +101,21 @@ body {
 .modal-content {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0); /* Начальное состояние для анимации */
-    opacity: 0; /* Начальная прозрачность */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Переходы */
-    background: white; /* Фон модального окна */
-    border-radius: 8px; /* Закругленные углы */
-    padding: 20px; /* Отступы внутри модального окна */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Тень для модального окна */
-    max-width: 300px; /* Максимальная ширина модального окна */
-    width: 90%; /* Ширина модального окна */
-    box-sizing: border-box; /* Учитываем отступы в ширине */
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    background: white; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    max-width: 300px; 
+    width: 90%; 
+    box-sizing: border-box; 
 }
 
 .modal-content.show {
-    transform: translate(-50%, -50%) scale(1); /* Конечное состояние для анимации */
-    opacity: 1; /* Конечная прозрачность */
+    transform: translate(-50%, -50%) scale(1); 
+    opacity: 1; 
 }
 
 .close {
@@ -134,41 +134,41 @@ body {
 }
 
 .game-stats {
-    margin-top: 10px; /* Отступ сверху для блока со статистикой игр */
+    margin-top: 10px; 
 }
 
 .game-card {
-    background: #f9f9f9; /* Цвет фона по умолчанию */
-    border: 1px solid #ddd; /* Цвет рамки карточки */
-    border-radius: 5px; /* Закругленные углы карточки */
-    padding: 10px; /* Отступы внутри карточки */
-    margin-bottom: 10px; /* Отступ между карточками */
+    background: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    padding: 10px; 
+    margin-bottom: 10px; 
 }
 
 .game-title {
-    font-weight: bold; /* Жирный шрифт для названия игры */
+    font-weight: bold;
 }
 
 .game-hours {
-    color: rgba(255, 255, 255, 0.8); /* Более светлый серый цвет для времени */
-    font-size: 14px; /* Размер шрифта */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Тень текста */
+    color: rgba(255, 255, 255, 0.8); 
+    font-size: 14px; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 
 
-/* Стиль для кнопки "Написать" */
+
 .write-button {
     display: inline-block;
-    background-color: #0088cc; /* Цвет фона кнопки */
-    color: white; /* Цвет текста кнопки */
-    padding: 10px 15px; /* Отступы внутри кнопки */
-    border-radius: 5px; /* Закругленные углы */
-    text-decoration: none; /* Убираем подчеркивание */
-    text-align: center; /* Выравнивание текста по центру */
-    margin-top: 10px; /* Отступ сверху */
+    background-color: #0088cc; 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px; 
 }
 
 .write-button:hover {
-    background-color: #0077b3; /* Цвет фона кнопки при наведении */
+    background-color: #0077b3; 
 }
