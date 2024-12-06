@@ -8,14 +8,21 @@
     <link rel="stylesheet" href="telegram.css">
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="games.css">
+    <link rel="stylesheet" href="ege.css">
 </head>
 <body>
     <div class="container">
         <div class="icon icon-top" onclick="openModal('telegram', this)">
             <img src="Telegram-logo.png" alt="Telegram" width="30" height="30" />
         </div>
-        <div class="icon icon-left" onclick="openModal('components', this)">
+        <div class="icon icon-right" onclick="openModal('games', this)">
+            &#8505;
+        </div>
+        <div class="icon icon-center" onclick="openModal('result_ege', this)">
             &#9733;
+        </div>
+        <div class="icon icon-left" onclick="openModal('components', this)">
+            <img src="processor.png" alt="Processor" width="30" height="30" />
         </div>
         <div class="avatar"></div>
         <div class="notebook">
@@ -26,10 +33,11 @@
                 <p>Здесь я постараюсь тестировать свои front-end навыки</p>
             </div>
         </div>
-        <div class="icon icon-right" onclick="openModal('games', this)">
-            &#8505;
+        <button id="theme-toggle" class="theme-toggle">
+            <div class="icon-sun"></div>
+            <div class="icon-moon"></div>
+        </button>
         </div>
-    </div>
 
     <!-- Telegram -->
     <div class="modal" id="modal-telegram">
@@ -67,6 +75,27 @@
         </div>
     </div>
 
+    <div class="modal" id="modal-result_ege">
+        <div class="modal-content" id="modal-content-result_ege" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('result_ege')">&times;</span>
+            <div class="notebook">
+                <p>В Июне 2024 года я сдал ЕГЭ</p>
+                <p>Ниже представлены мои результаты:</p>
+            </div>
+            <div class="ege-stats">
+                <div>
+                    <p class="ege-title">Информатика: 90</p>
+                </div>
+                <div>
+                    <p class="ege-title">Математика: 86</p>
+                </div>
+                <div>
+                    <p class="ege-title">Русский язык: 64</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Игры-->
     <div class="modal" id="modal-games">
         <div class="modal-content" id="modal-content-games" onclick="event.stopPropagation();">
@@ -93,8 +122,5 @@
     </div>
 
     <script src="scripts.js"></script>
-    <script src="telegram.js"></script>
-    <script src="components.js"></script>
-    <script src="games.js"></script>
 </body>
 </html>
