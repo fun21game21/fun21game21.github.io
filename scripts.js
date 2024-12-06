@@ -2,9 +2,11 @@ function openModal(type, icon) {
     const modalTelegram = document.getElementById('modal-telegram');
     const modalComponents = document.getElementById('modal-components');
     const modalGames = document.getElementById('modal-games');
+    const modalResultEge = document.getElementById('modal-result_ege');
     const modalContentTelegram = document.getElementById('modal-content-telegram');
     const modalContentComponents = document.getElementById('modal-content-components');
     const modalContentGames = document.getElementById('modal-content-games');
+    const modalContentResultEge = document.getElementById('modal-content-result_ege');
 
     let modal, modalContent;
 
@@ -17,6 +19,9 @@ function openModal(type, icon) {
     } else if (type === 'games') {
         modal = modalGames;
         modalContent = modalContentGames;
+    } else if (type === 'result_ege') {
+        modal = modalResultEge;
+        modalContent = modalContentResultEge;
     }
 
     const iconRect = icon.getBoundingClientRect();
@@ -37,6 +42,7 @@ function closeModal(type) {
     const modalContentTelegram = document.getElementById('modal-content-telegram');
     const modalContentComponents = document.getElementById('modal-content-components');
     const modalContentGames = document.getElementById('modal-content-games');
+    const modalContentResultEge = document.getElementById('modal-content-result_ege');
 
     if (type === 'telegram') {
         modalContentTelegram.classList.remove('show'); // Удалить класс show для анимации
@@ -53,6 +59,11 @@ function closeModal(type) {
         setTimeout(() => {
             document.getElementById('modal-games').style.display = "none"; // Скрыть модальное окно после анимации
         }, 300); // Подождать завершения анимации
+    } else if (type === 'result_ege') {
+        modalContentResultEge.classList.remove('show'); // Удалить класс show для анимации
+        setTimeout(() => {
+            document.getElementById('modal-result_ege').style.display = "none"; // Скрыть модальное окно после анимации
+        }, 300); // Подождать завершения анимации
     }
 }
 
@@ -61,5 +72,18 @@ window.onclick = function(event) {
         closeModal('telegram'); // Закрыть модальное окно при клике вне его
         closeModal('components'); // Закрыть модальное окно при клике вне его
         closeModal('games'); // Закрыть модальное окно при клике вне его
+        closeModal('result_ege'); // Закрыть модальное окно при клике вне его
     }
 }
+
+// script.js
+const themeToggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+const container = document.querySelector('.container'); // Получаем основной блок
+
+themeToggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    body.classList.toggle('light-theme');
+    container.classList.toggle('dark-theme'); // Добавляем переключение класса для контейнера
+    container.classList.toggle('light-theme'); // Добавляем переключение класса для контейнера
+});
