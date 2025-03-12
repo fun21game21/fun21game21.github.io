@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Максончик</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="games\styles_games.css">
+    <link rel="stylesheet" href="telegram\styles_telegram.css">
+    <link rel="stylesheet" href="components\styles_components.css">
+    <link rel="stylesheet" href="games.css">
+    <link rel="stylesheet" href="ege\styles_ege.css">
+    <link rel="stylesheet" href="avatar\styles_avatar.css">
+    <link rel="stylesheet" href="theme\styles_theme.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icon icon-top" onclick="openModal('telegram', this)">
+            <img src="telegram\Telegram-logo.png" alt="Telegram" width="30" height="30" />
+        </div>
+        <div class="icon icon-right" onclick="openModal('games', this)">
+            &#8505;
+        </div>
+        <div class="icon icon-center" onclick="openModal('result_ege', this)">
+            &#9733;
+        </div>
+        <div class="icon icon-left" onclick="openModal('components', this)">
+            <img src="components\processor.png" alt="Processor" width="30" height="30" />
+        </div>
+        <div class="avatar"></div>
+        <div class="notebook">
+            <p>Привет!</p>
+            <p>Я Максимка, студент 1-го курса ЧГУ.</p>
+            <p>Это моя тестовая страничка)</p>
+            <div class="field">
+                <p>Здесь я постараюсь тестировать свои front-end навыки</p>
+            </div>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">
+            <div class="icon-sun"></div>
+            <div class="icon-moon"></div>
+        </button>
+        </div>
+
+    <!-- Telegram -->
+    <div class="modal" id="modal-telegram">
+        <div class="modal-content" id="modal-content-telegram" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('telegram')">&times;</span>
+            <div class="notebook">
+                <p>Мой телеграмм: maax1mka</p>
+                <a href="https://t.me/maax1mka" class="write-button">Написать</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Комплектующие-->
+    <div class="modal" id="modal-components">
+        <div class="modal-content" id="modal-content-components" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('components')">&times;</span>
+            <div class="notebook">
+                <p>Вот комплектующие моей микроволновки:</p>
+            </div>
+            <div class="component-card">
+                <p class="component-title">Процессор: Ryzen 7 5800X3D</p>
+            </div>
+            <div class="component-card">
+                <p class="component-title">Видеокарта: RTX 3070</p>
+            </div>
+            <div class="component-card">
+                <p class="component-title">Материнская плата: Gigabyte B450M H</p>
+            </div>
+            <div class="component-card">
+                <p class="component-title">Оперативная память: CUSO 16GB XMP2.0</p>
+            </div>
+            <div class="component-card">
+                <p class="component-title">SSD: XPG GAMMIX S11 Pro 1TB</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-result_ege">
+        <div class="modal-content" id="modal-content-result_ege" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('result_ege')">&times;</span>
+            <div class="notebook">
+                <p>В Июне 2024 года я сдал ЕГЭ</p>
+                <p>Ниже представлены мои результаты:</p>
+            </div>
+            <div class="ege-stats">
+                <div>
+                    <p class="ege-title">Информатика: 92</p>
+                </div>
+                <div>
+                    <p class="ege-title">Математика: 86</p>
+                </div>
+                <div>
+                    <p class="ege-title">Русский язык: 64</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Игры-->
+    <div class="modal" id="modal-games">
+        <div class="modal-content" id="modal-content-games" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('games')">&times;</span>
+            <div class="notebook">
+                <p>Я как и многие немного увлекаюсь компьютерными играми)</p>
+                <p>Попробую представить свою статистику игр:</p>
+            </div>
+            <div class="game-stats">
+                <div class="game-card card-csgo">
+                    <p class="game-title">Counter Strike 2</p>
+                    <p class="game-hours">Часы: 1 700</p>
+                </div>
+                <div class="game-card card-minecraft">
+                    <p class="game-title">Minecraft</p>
+                    <p class="game-hours">Часы: 2 000</p>
+                </div>
+                <div class="game-card card-terraria">
+                    <p class="game-title">Terraria</p>
+                    <p class="game-hours">Часы: 1 000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
