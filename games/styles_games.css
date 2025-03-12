@@ -1,0 +1,40 @@
+.game-stats {
+    margin-top: 10px;
+}
+
+.game-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.game-title {
+    color: black;
+    font-weight: bold;
+}
+
+.game-hours {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.card-minecraft {
+    background-image: url('minecraft.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-terraria {
+    background-image: url('terraria.jpg');
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.card-csgo {
+    background-image: url('cs2.jpg');
+}
