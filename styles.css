@@ -63,9 +63,17 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
+
 .icon-right {
     position: absolute;
     bottom: -30% ;
+    right: 20%;
+    transform: translateX(-50%);
+}
+
+.icon-top-right {
+    position: absolute;
+    bottom: 30% ;
     right: 20%;
     transform: translateX(-50%);
 }
