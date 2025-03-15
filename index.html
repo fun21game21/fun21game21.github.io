@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="ege\styles_ege.css">
     <link rel="stylesheet" href="avatar\styles_avatar.css">
     <link rel="stylesheet" href="theme\styles_theme.css">
+    <link rel="stylesheet" href="mini-game\styles_mini-game.css">
 </head>
 <body>
     <div class="container">
@@ -26,6 +27,9 @@
         </div>
         <div class="icon icon-left" onclick="openModal('components', this)">
             <img src="components\processor.png" alt="Processor" width="30" height="30" />
+        </div>
+        <div class="icon icon-top-right" onclick="openModal('mini-game', this)">
+            <img src="path/to/joystick-icon.png" alt="Joystick" width="30" height="30" />
         </div>
         <div class="avatar"></div>
         <div class="notebook">
@@ -50,6 +54,14 @@
                 <p>Мой телеграмм: maax1mka</p>
                 <a href="https://t.me/maax1mka" class="write-button">Написать</a>
             </div>
+        </div>
+    </div>
+
+    <!-- Мини-игра -->
+    <div class="modal" id="modal-mini-game">
+        <div class="modal-content" id="modal-content-mini-game" onclick="event.stopPropagation();">
+            <span class="close" onclick="closeModal('mini-game')">&times;</span>
+            <iframe src="mini-game/mini-game.html" width="512px" height="512px" style="border: none;"></iframe>
         </div>
     </div>
 
@@ -78,6 +90,7 @@
         </div>
     </div>
 
+    <!-- Результаты ЕГЭ-->
     <div class="modal" id="modal-result_ege">
         <div class="modal-content" id="modal-content-result_ege" onclick="event.stopPropagation();">
             <span class="close" onclick="closeModal('result_ege')">&times;</span>
