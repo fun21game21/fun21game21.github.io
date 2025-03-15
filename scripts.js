@@ -3,10 +3,12 @@ function openModal(type, icon) {
     const modalComponents = document.getElementById('modal-components');
     const modalGames = document.getElementById('modal-games');
     const modalResultEge = document.getElementById('modal-result_ege');
+    const modalMiniGame = document.getElementById('modal-mini-game'); // Новое модальное окно
     const modalContentTelegram = document.getElementById('modal-content-telegram');
     const modalContentComponents = document.getElementById('modal-content-components');
     const modalContentGames = document.getElementById('modal-content-games');
     const modalContentResultEge = document.getElementById('modal-content-result_ege');
+    const modalContentMiniGame = document.getElementById('modal-content-mini-game'); // Контент нового модального окна
 
     let modal, modalContent;
 
@@ -22,6 +24,9 @@ function openModal(type, icon) {
     } else if (type === 'result_ege') {
         modal = modalResultEge;
         modalContent = modalContentResultEge;
+    } else if (type === 'mini-game') { // Обработка нового модального окна
+        modal = modalMiniGame;
+        modalContent = modalContentMiniGame;
     }
 
     const iconRect = icon.getBoundingClientRect();
@@ -43,6 +48,7 @@ function closeModal(type) {
     const modalContentComponents = document.getElementById('modal-content-components');
     const modalContentGames = document.getElementById('modal-content-games');
     const modalContentResultEge = document.getElementById('modal-content-result_ege');
+    const modalContentMiniGame = document.getElementById('modal-content-mini-game'); // Контент нового модального окна
 
     if (type === 'telegram') {
         modalContentTelegram.classList.remove('show'); // Удалить класс show для анимации
@@ -64,6 +70,11 @@ function closeModal(type) {
         setTimeout(() => {
             document.getElementById('modal-result_ege').style.display = "none"; // Скрыть модальное окно после анимации
         }, 300); // Подождать завершения анимации
+    } else if (type === 'mini-game') { // Обработка нового модального окна
+        modalContentMiniGame.classList.remove('show'); // Удалить класс show для анимации
+        setTimeout(() => {
+            document.getElementById('modal-mini-game').style.display = "none"; // Скрыть модальное окно после анимации
+        }, 300); // Подождать завершения анимации
     }
 }
 
@@ -73,6 +84,7 @@ window.onclick = function(event) {
         closeModal('components'); // Закрыть модальное окно при клике вне его
         closeModal('games'); // Закрыть модальное окно при клике вне его
         closeModal('result_ege'); // Закрыть модальное окно при клике вне его
+        closeModal('mini-game'); // Закрыть модальное окно при клике вне его
     }
 }
 
