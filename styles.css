@@ -73,7 +73,7 @@ body {
 
 .icon-top-right {
     position: absolute;
-    bottom: 30% ;
+    top: -30% ;
     right: 20%;
     transform: translateX(-50%);
 }
