@@ -1,0 +1,35 @@
+/* Стили для модального окна мини-игры */
+#modal-mini-game .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 562px; /* Ширина модального окна */
+    max-width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#modal-mini-game .modal-content.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#modal-mini-game .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#modal-mini-game iframe {
+    width: 512px;
+    height: 512px;
+    border: none;
+    border-radius: 10px;
+}
