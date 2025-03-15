@@ -95,6 +95,36 @@ game.addEventListener('mousemove', (e) => {
     player.style.top = playerY + 'px';
 });
 
+//YJJJDF
+
+// Обработчик начала касания
+game.addEventListener('touchstart', (e) => {
+    if (isGameOver) return;
+    const touch = e.touches[0]; // Получаем первое касание
+    const rect = lightArea.getBoundingClientRect();
+    playerX = Math.max(rect.left, Math.min(touch.clientX - playerWidth / 2, rect.left + rect.width - playerWidth));
+    playerY = Math.max(rect.top, Math.min(touch.clientY - playerSize / 2, rect.top + rect.height - playerSize));
+    player.style.left = playerX + 'px';
+    player.style.top = playerY + 'px';
+});
+
+// Обработчик движения пальца по экрану
+game.addEventListener('touchmove', (e) => {
+    if (isGameOver) return;
+    const touch = e.touches[0]; // Получаем первое касание
+    const rect = lightArea.getBoundingClientRect();
+    playerX = Math.max(rect.left, Math.min(touch.clientX - playerWidth / 2, rect.left + rect.width - playerWidth));
+    playerY = Math.max(rect.top, Math.min(touch.clientY - playerSize / 2, rect.top + rect.height - playerSize));
+    player.style.left = playerX + 'px';
+    player.style.top = playerY + 'px';
+});
+
+// Обработчик окончания касания
+game.addEventListener('touchend', () => {
+    // Можно добавить логику, если нужно
+});
+
+//asdjsadhf
 function updatePlayerPosition() {
     if (isGameOver) return;
 
