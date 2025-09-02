@@ -78,6 +78,13 @@ body {
     transform: translateX(-50%);
 }
 
+.icon-top-left {
+    position: absolute;
+    top: -30% ;
+    left: 30%;
+    transform: translateX(-50%);
+}
+
 .icon-top {
     left: 50%;
     top: -75px;
