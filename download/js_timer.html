@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Колсанов М.Б.</title>
+        <script language="javascript">
+            function setimg(){
+                var im = document.getElementById("img1");
+                var number_alt = parseInt(im.getAttribute('alt').slice(0, -4));
+                im.setAttribute('alt', number_alt+1+'.jpg');
+                im.setAttribute('src', number_alt+1+'.jpg');
+            }
+
+            window.setInterval(setimg, 1000);
+        </script>
+    </head>
+
+    <body>
+        <div style="display: flex; justify-content: center; font-size: 25px;">Работа с таймерами в JavaScript</div>
+
+        <img src="1.jpg" alt="1.jpg" width="128px" id="img1">
+
+    </body>
+</html>
