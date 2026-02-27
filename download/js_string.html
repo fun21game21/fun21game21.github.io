@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Колсанов М.Б.</title>
+        <script language="javascript">
+            function a(){
+                var s = document.getElementById("word1").value;
+                if (s.split('').reverse().join('') == s){
+                    alert("Палиндром");
+                }
+                else{
+                    alert("Не палиндром");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center; font-size: 25px;">Строки</div>
+        <div style="display: flex; width: 75%; font-size: 20px;">Дана фраза. Выяснить, является ли она палиндромом (одинаково читается слева направо и справа - налево)?</div>
+        <div name = "place" style="display: flex; background-color: black; color: white; padding: 10px; border-radius: 15px;"> 
+            Введите слово 
+            <input type="text" id="word1" size="10" style="margin-left: 10px;">
+            <button style="border-radius: 10px; margin-left: 5px;" onClick="a();">Проверить</button>
+        </div>
+        
+    </body>
+</html>
