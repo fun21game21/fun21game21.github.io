@@ -10,27 +10,33 @@
         </style>
         <script language="javascript">
             function save(elem){
-                localStorage.setItem(localStorage.length, elem.value);
+                var count = document.getElementById('s').innerHTML;
+                localStorage.setItem(count, elem.value);
                 elem.setAttribute('readonly', true);
-                document.getElementById('s').innerHTML = localStorage.length;
+                count = localStorage.length;
             }
             function edit(elem){
                 elem.removeAttribute('readonly');
             }
-            
+
             function up(){
+                let elem = document.getElementById('text');
+
                 let count = document.getElementById('s');
                 if (parseInt(count.innerHTML) < localStorage.length){
                     count.innerHTML = parseInt(count.innerHTML) + 1;
                 }
-                document.getElementById('text').innerHTML = localStorage.getItem(count.innerHTML);
+                elem.value = localStorage.getItem(count.innerHTML);
             }
             function down(){
+                let elem = document.getElementById('text');
+                
+
                 let count = document.getElementById('s');
                 if (parseInt(count.innerHTML) > 0){
                     count.innerHTML = parseInt(count.innerHTML) -1;
                 }
-                document.getElementById('text').innerHTML = localStorage.getItem(count.innerHTML);
+                elem.value = localStorage.getItem(count.innerHTML);
             }
         </script>
     </head>
