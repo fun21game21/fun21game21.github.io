@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Колсанов М.Б.</title>
+        <style>
+            textarea{
+                resize: none;
+                border: 2px solid black;
+            }
+        </style>
+        <script language="javascript">
+            function save(elem){
+                localStorage.setItem(localStorage.length, elem.value);
+                elem.setAttribute('readonly', true);
+                document.getElementById('s').innerHTML = localStorage.length;
+            }
+            function edit(elem){
+                elem.removeAttribute('readonly');
+            }
+            
+            function up(){
+                let count = document.getElementById('s');
+                if (parseInt(count.innerHTML) < localStorage.length){
+                    count.innerHTML = parseInt(count.innerHTML) + 1;
+                }
+                document.getElementById('text').innerHTML = localStorage.getItem(count.innerHTML);
+            }
+            function down(){
+                let count = document.getElementById('s');
+                if (parseInt(count.innerHTML) > 0){
+                    count.innerHTML = parseInt(count.innerHTML) -1;
+                }
+                document.getElementById('text').innerHTML = localStorage.getItem(count.innerHTML);
+            }
+        </script>
+    </head>
+
+    <body>
+        <div style="display: flex; justify-content: center; font-size: 25px;">Локальное хранилище</div> 
+        
+        <div style="display: grid; grid-template-columns: 40% 0;">
+            <textarea id="text"></textarea>
+            <div>
+                <button onclick="up()">
+                    ^
+                </button>
+                <span id="s"></span>
+                <script lang="javascript">
+                    document.getElementById('s').innerHTML = localStorage.length; 
+                </script>
+                <button onclick="down()">
+                    v
+                </button>
+            </div>
+            <div style="display: grid; grid-template-columns: 50% 50%;">
+                <button onclick="save(document.getElementById('text'))">
+                    Сохранить
+                </button>
+                <button onclick="edit(document.getElementById('text'))">
+                    Изменить
+                </button>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
